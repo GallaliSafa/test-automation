@@ -38,7 +38,20 @@ def test_list_authors(monkeypatch):
         'Gallali Safa',
     ])
 
-def test_name_empty(monkeypatch):
+def test_firstname_empty(monkeypatch):
+    def mock_get_books(*args):
+        return [
+            {'id': 'aaa-001', 'name': 'Origine', 'author': {'firstname': '', 'lastname': 'Gallali'}},
+           ]
+
+    monkeypatch.setattr(BookFetcherService, 'get_books', mock_get_books)
+
+    book_service = BookService(book_fetcher_service=BookFetcherService())
+    authors = book_service.list_books_authors()
+
+    assert collections.Counter(authors) == collections.Counter([ 'Gallali '])
+
+def test_author_empty(monkeypatch):
     def mock_get_books(*args):
         return [
             {'id': 'aaa-001', 'name': 'Origine', 'author': {'firstname': '', 'lastname': ''}},
@@ -51,3 +64,16 @@ def test_name_empty(monkeypatch):
 
     assert collections.Counter(authors) == collections.Counter([ ' '])
 
+    def test_list_book_empty(monkeypatch):
+        # we define a function that will replace the existing function
+        # instead of calling the mocked server, we use a controlled dataset
+        def mock_get_books(*args):
+            return [
+                {'id': '', 'name': '', 'author': {'firstname': '', 'lastname': ''}},]
+
+        monkeypatch.setattr(BookFetcherService, 'get_books', mock_get_books)
+
+        book_service = BookService(book_fetcher_service=BookFetcherService())
+        ids = book_service.list_books_ids()
+
+        assert collections.Counter(ids) == collections.Counter([' '])
