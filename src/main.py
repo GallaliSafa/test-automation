@@ -14,5 +14,8 @@ print('authors : ' +  ', '.join(book_service.list_books_authors()))
 user_fetcher_service = UserFetcherService()
 user_service = UserService(user_fetcher_service=user_fetcher_service)
 
-print(user_service.list_users())
+#print(user_service.list_users())
+for user in users:
+    print(f'User email : {user['email']} (id: {user['id']})')
+
 
