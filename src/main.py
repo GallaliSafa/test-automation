@@ -10,7 +10,6 @@ book_service = BookService(book_fetcher_service=book_fetcher_service)
 print("ids : " + ", ".join(book_service.list_books_ids()))
 print("authors : " + ", ".join(book_service.list_books_authors()))
 
-
 user_fetcher_service = UserFetcherService()
 user_service = UserService(user_fetcher_service=user_fetcher_service)
 
