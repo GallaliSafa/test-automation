@@ -20,4 +20,4 @@ jobs:
       - name: Unit tests
         run: pytest
       - name: linter
-        run: ruff
+        run: ruff check src
