@@ -4,4 +4,4 @@ pytest-watch
 ruff
 numpy
 mypy
-
+types-requests
