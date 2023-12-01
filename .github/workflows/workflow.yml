@@ -20,4 +20,4 @@ jobs:
       - name: linter
         run: ruff
       - name: static type checker
-        run: mypy
+        run: mypy src
