@@ -80,12 +80,12 @@ def test_list_user_multiple_users_with_lowercase_check(monkeypatch):
     assert is_equal_unordered(users, [
         {
             'id': 1,
-            'email': 'lolo@gmail.com'
+            'email': 'mama@gmail.com'
         }, {
             'id': 2,
-            'email': 'lala@gmail.com'
+            'email': 'papa@hotmail.com'
         }, {
             'id': 3,
-            'email': 'lili@gmail.com'
+            'email': 'tata@gmail.com'
         }
     ])
