@@ -85,7 +85,7 @@ def test_list_user_multiple_users_with_lowercase_check(monkeypatch):
             'email': 'mama@gmail.com'
         }, {
             'id': 2,
-            'email': 'papa@hotmail.com'
+            'email': 'papi@hotmail.com'
         }, {
             'id': 3,
             'email': 'tata@gmail.com'
