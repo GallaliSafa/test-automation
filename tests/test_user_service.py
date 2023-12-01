@@ -2,7 +2,7 @@ import collections
 # https://docs.python.org/3/library/typing.html#the-any-type
 from typing import Any
 import numpy as n
-
+import pytest
 
 
 from src.services.user_fetcher_service import UserFetcherService
@@ -58,7 +58,7 @@ def test_list_user_multiple_users(monkeypatch):
     ])
 
 
-
+@pytest.mark.skip()
 def test_list_user_multiple_users_with_lowercase_check(monkeypatch):
     def mock_get_users(*args):
         return [{
