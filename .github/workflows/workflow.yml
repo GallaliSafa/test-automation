@@ -19,3 +19,5 @@ jobs:
         run: pytest
       - name: linter
         run: ruff
+      - name: static type checker
+        run: mypy
