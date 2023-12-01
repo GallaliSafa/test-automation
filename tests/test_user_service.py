@@ -77,6 +77,8 @@ def test_list_user_multiple_users_with_lowercase_check(monkeypatch):
     user_service = UserService(user_fetcher_service=UserFetcherService())
     users = user_service.list_users()
 
+
+
     assert is_equal_unordered(users, [
         {
             'id': 1,
